@@ -4,7 +4,7 @@ package uofthacks2016.atychos.network;
  * Created by vitaliy on 2016-01-23.
  */
 public class AtychosURLEndPoints {
-    public static final String URL = "https://still-tor-86219.herokuapp.com/";
+    public static final String URL = "https://still-tor-86219.herokuapp.com";
 
     //User end points
     public static final String USER = URL + "/user";
