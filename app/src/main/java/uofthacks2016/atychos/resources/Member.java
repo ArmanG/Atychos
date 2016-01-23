@@ -10,12 +10,12 @@ public class Member {
     private long id;
     private String number;
 
-    public User(String number, long id) {
+    public Member(String number, long id) {
         this.id = id;
         this.number = number;
     }
 
-    public User(String number) {
+    public Member(String number) {
         this.id = NULL_ID;
         this.number = number;
     }
