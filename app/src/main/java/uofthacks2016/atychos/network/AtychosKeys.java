@@ -7,4 +7,5 @@ public class AtychosKeys {
     public static final String USER = "user";
     public static final String NUMBER = "number";
     public static final String ID = "id";
+    public static final String USER_ID = "user_id";
 }
