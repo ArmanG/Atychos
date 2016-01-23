@@ -32,6 +32,14 @@
             android:name=".PositionDetector"
             android:label="@string/title_activity_position_detector" >
         </activity>
+        <activity
+            android:name=".PhoneNumbersActivity"
+            android:label="@string/title_activity_phone_numbers" >
+        </activity>
+        <activity
+            android:name=".Detector"
+            android:label="@string/title_activity_detector" >
+        </activity>
     </application>
 
 </manifest>

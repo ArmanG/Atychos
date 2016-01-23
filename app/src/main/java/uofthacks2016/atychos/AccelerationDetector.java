@@ -10,39 +10,25 @@ import com.thalmic.myo.Myo;
 import com.thalmic.myo.Vector3;
 
 
-public class AccelerationDetector extends ActionBarActivity {
+public class AccelerationDetector extends Detector {
 
+    protected final static int THRESHOLD = 10;
 
     public void onData(long timestamp, Vector3 accel, Myo myo) {
         Log.v("ACCEL",
                 String.format("%d, %f, %f, %f", timestamp, accel.x(), accel.y(), accel.z()));
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_position_detector);
+        checkForGestureMatch(accel, myo);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_position_detector, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    protected void checkForGestureMatch(Vector3 accel, Myo myo) {
+        accelX = accel.x();
+        accelY = accel.y();
+        accelZ = accel.z();
+        if (accelX > THRESHOLD || accelY > THRESHOLD || accelZ > THRESHOLD) {
+            Log.v("XXXXXXXXX", String.format("THRESHOLD REACHED AT, %f, %f, %f", accel.x(), accel.y(), accel.z()));
+            //send gyroscope coordinates
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+
 }

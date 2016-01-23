@@ -10,38 +10,20 @@ import com.thalmic.myo.Myo;
 import com.thalmic.myo.Vector3;
 
 
-public class PositionDetector extends ActionBarActivity {
+public class PositionDetector extends Detector {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_position_detector);
+
+    public void onData(long timestamp, Vector3 gyro, Myo myo) {
+        Log.v("GYRO",
+                String.format("%d, %f, %f, %f", timestamp, gyro.x(), gyro.y(), gyro.z()));
+        checkForGestureMatch(gyro, myo);
     }
 
-    public void onData(long timestamp, Vector3 pos, Myo myo) {
-        Log.v("POSITION",
-                String.format("%d, %f, %f, %f", timestamp, pos.x(), pos.y(), pos.z()));
+    protected void checkForGestureMatch(Vector3 gyro, Myo myo){
+        posX = gyro.x();
+        posY = gyro.y();
+        posZ = gyro.z();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_position_detector, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

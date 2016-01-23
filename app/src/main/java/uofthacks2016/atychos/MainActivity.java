@@ -17,9 +17,6 @@ import com.thalmic.myo.scanner.ScanActivity;
 
 public class MainActivity extends Activity {
 
-
-
-
     private DeviceListener mListener = new AbstractDeviceListener() {
         // onConnect() is called whenever a Myo has been connected.
         @Override
@@ -49,9 +46,6 @@ public class MainActivity extends Activity {
             Log.d("NAO", "Could not initialize the Hub.");
         }
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

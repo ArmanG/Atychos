@@ -25,8 +25,8 @@ public class HomePageActivity extends ActionBarActivity {
         }
 
         @Override
-        public void onGyroscopeData(final Myo myo, long timestamp, Vector3 accel) {
-            mPositionDetector.onData(timestamp, accel, myo);
+        public void onGyroscopeData(final Myo myo, long timestamp, Vector3 gyro) {
+            mPositionDetector.onData(timestamp, gyro, myo);
         }
 
     };
