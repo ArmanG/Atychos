@@ -17,11 +17,21 @@ public class HomePageActivity extends ActionBarActivity {
     private DeviceListener mListener = new AbstractDeviceListener() {
 
         protected AccelerationDetector mAccelerationDetector = new AccelerationDetector();
+        protected PositionDetector mPositionDetector = new PositionDetector();
+
         @Override
         public void onAccelerometerData(final Myo myo, long timestamp, Vector3 accel) {
             mAccelerationDetector.onData(timestamp, accel, myo);
         }
+
+        @Override
+        public void onGyroscopeData(final Myo myo, long timestamp, Vector3 accel) {
+            mPositionDetector.onData(timestamp, accel, myo);
+        }
+
     };
+
+
 
     void startMyo() {
         Hub.getInstance().addListener(mListener);
