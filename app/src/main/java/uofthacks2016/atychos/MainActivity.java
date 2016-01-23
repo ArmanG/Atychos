@@ -176,6 +176,8 @@ public class MainActivity extends Activity {
                     }
             );
             this.requestQueue.addToRequestQueue(request);
+            Intent intent = new Intent(MainActivity.this, SensorActivity.class);
+            MainActivity.this.startActivity(intent);
 
         }
         catch(Exception e) {
@@ -185,7 +187,7 @@ public class MainActivity extends Activity {
             return false;
         }
 
-
+        setContentView(R.layout.activity_app_main);
 
         return true;
     }

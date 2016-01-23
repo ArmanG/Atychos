@@ -19,7 +19,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:id="@+id/nameField"
+        android:text="Name"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp" />
 
@@ -54,4 +56,5 @@
         android:text="Cancel"
         android:id="@+id/cancelButton"
         android:onClick="goToMainPage" />
+
 </LinearLayout>
