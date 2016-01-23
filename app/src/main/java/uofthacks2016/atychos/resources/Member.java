@@ -1,5 +1,10 @@
 package uofthacks2016.atychos.resources;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import uofthacks2016.atychos.network.AtychosKeys;
+
 /**
  * Created by vitaliy on 2016-01-23.
  */
@@ -18,6 +23,11 @@ public class Member {
     public Member(String number) {
         this.id = NULL_ID;
         this.number = number;
+    }
+
+    public Member(JSONObject jsonObject) throws JSONException {
+        this.id = jsonObject.getLong(AtychosKeys.ID);
+        this.number = jsonObject.getString(AtychosKeys.NUMBER);
     }
 
     public String getNumber() {
