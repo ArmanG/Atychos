@@ -28,7 +28,6 @@ public class SingletonUser {
     private User user;
     private List<Member> memberList;
     private static Context ctx;
-    private static AtychosRequestQueue requestQueue;
 
     private SingletonUser(Context context) {
         ctx = context;
@@ -39,8 +38,7 @@ public class SingletonUser {
 
         this.user = new User(telephonyManager.getLine1Number()); */
 
-        this.user = new User("9054443333");
-        requestQueue = AtychosRequestQueue.getInstance(context);
+        //this.user = new User("9054443333");
     }
 
     public static SingletonUser getInstance(Context context) {
@@ -52,32 +50,18 @@ public class SingletonUser {
     }
 
     public User getUser() throws JSONException {
-        JSONObject user = new JSONObject();
-        user.put(AtychosKeys.NUMBER, this.user.getNumber());
-        JSONObject param = new JSONObject();
-        param.putOpt(AtychosKeys.USER, user);
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
-                AtychosURLEndPoints.USER_GET, param,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i("Response", response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("error", error.toString());
-                    }
-                }
-        );
-
-        requestQueue.addToRequestQueue(request);
         return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Member> getMemberList() {
         return this.memberList;
+    }
+
+    public void setMemberList(List<Member> memberList){
+        this.memberList = memberList;
     }
 }
