@@ -9,4 +9,6 @@ public class AtychosKeys {
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
     public static final String MEMBER = "member";
+    public static final String LON = "lon";
+    public static final String LAT = "lat";
 }
